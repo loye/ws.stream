@@ -1,0 +1,15 @@
+{
+  "name": "ws.stream",
+  "description": "WebSocket steam based on ws.",
+  "version": "0.1.0",
+  "author": "Lijian Qiu",
+  "keywords": ["websocket", "stream"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/loye/ws.stream.git"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "ws": "0.4.32"
+  }
+}
