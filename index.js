@@ -85,7 +85,7 @@ module.exports.connect = function (address, protocols, options) {
 module.exports.listen = function (options, connectionListener) {
   var server = new WebSocket.Server(options);
   if (typeof connectionListener === 'function') {
-    server.on('connect', function (ws) {
+    server.on('connection', function (ws) {
       connectionListener.call(null, new WebSocketStream(ws));
     });
   }
