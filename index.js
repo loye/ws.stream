@@ -14,6 +14,10 @@ function WebSocketStream(address, protocols, options) {
 
   this.status = { sent: 0, received: 0 };
 
+  this.on('finish', function () {
+    this.close();
+  }).on('error', function (err) { });
+
   if (typeof address === 'string') {
     this._socket = new WebSocket(address, protocols, options)
       .on('open', onopen.bind(this))
@@ -35,10 +39,6 @@ function onopen() {
     self.push(null);
     self.emit('close', !!self.status.closing);
   });
-
-  this.on('finish', function () {
-    self.close();
-  }).on('error', function (err) { });
 
   this.connected = true;
   this.emit('connect', this);
